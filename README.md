@@ -64,7 +64,7 @@ Kiểm tra lại bên máy server ubuntu, thấy IP của máy cần bảo vệ 
 <img width="975" height="519" alt="image" src="https://github.com/user-attachments/assets/b6f55b9c-38db-4d88-a171-37d21b656f3c" />
 
 ### Kịch bản 2: Tấn công truy cập và thu thập đường dẫn nhạy cảm bằng gobuster
-* Thực hiện viết một scripts tấn công bằng tool gobuster chạy trên máy kali linux để tấn công máy chủ web. Đoạn scripts sử dụng chế độ liệt kê thư mục và tệp tin của địa chỉ 192.168.2.4, sử dụng file từ điển common.txt để thử tên của các thư mục và tệp tin phổ biến. Chạy 10 luồn song song để tăng tốc độ quét, và tìm kiếm các file cụ thể như .php, .txt, .bak, .zip, .old, .env
+* Thực hiện viết một scripts tấn công bằng tool gobuster chạy trên máy kali linux để tấn công máy chủ web. Đoạn scripts sử dụng chế độ liệt kê thư mục và tệp tin của địa chỉ 192.168.2.4, sử dụng file từ điển common.txt để thử tên của các thư mục và tệp tin phổ biến. Chạy 10 luồng song song để tăng tốc độ quét, và tìm kiếm các file cụ thể như .php, .txt, .bak, .zip, .old, .env
 <img width="975" height="1076" alt="image" src="https://github.com/user-attachments/assets/7169e2e2-fdba-4433-8263-e12aebdf4439" />
 
 ### Kịch bản 3: Triển khai Community Blocklist, Scenarios cộng đồng để tự động bảo vệ hệ thống
@@ -76,11 +76,11 @@ Kiểm tra lại bên máy server ubuntu, thấy IP của máy cần bảo vệ 
 
 <img width="975" height="488" alt="image" src="https://github.com/user-attachments/assets/378da33a-23e5-40d4-b7c3-b6dfefd6c819" />
 
-* Bên trên là một danh sách dài các IP mà ta chưa hề bị chúng tấn công, nhưng hệ thống vẫn chặn để phòng ngừa. 
+* Bên trên là một danh sách dài các IP mà hệ thống máy chưa hề bị chúng tấn công, nhưng CrowdSec vẫn chặn để phòng ngừa. 
 
 ## 5. Kết quả
-* Kết quả các kịch bản, và phân tích sâu lý do CrowdSec có thể nhận biết và chặn được các hành vi ngay tức thì là do bộ kịch bản hành vi nằm bên trong đã được trình bày chi tiết trong báo cáo nghiên cứu .docx trên repo này.
-* Các kịch bản tấn công thử nghiệm khả năng phân tích hành vi và phát hiện của CrowdSec đều thành công, tốc độ lan truyền quyền tới các máy trong bouncers cũng rất nhanh. Đây là một công cụ mã nguồn mở rất đáng để nghiên cứu và phát triển sâu hơn. Ngoài ra tính năng machine learning vẫn chưa được đánh giá và sử dụng nhưng cũng dự đoán sẽ khá tiềm năng.
+* Kết quả các kịch bản, và nghiên cứu, phân tích đã được trình bày chi tiết trong báo cáo nghiên cứu .docx trên repo này.
+* Các kịch bản tấn công thử nghiệm khả năng phân tích hành vi và phát hiện của CrowdSec đều thành công, tốc độ lan truyền quyền tới các máy trong bouncers cũng rất nhanh. Đây là một công cụ mã nguồn mở rất đáng để nghiên cứu và phát triển sâu hơn. Ngoài ra tính năng machine learning vẫn chưa được đánh giá và sử dụng nhưng cũng sẽ đáng để mong chờ.
 * Nhược điểm là khả năng hỗ trợ trên các công cụ và hệ điều hành chưa đồng đều, qua quá trình triển khai thử nghiệm nhiều lần tôi thấy được việc triển khai trên các hệ điều hành nhân linux dễ dàng, tối ưu và nhanh chóng hơn so với windows. Ở thời điểm hiện tại Crowdsec chỉ có thể triển khai phân tích quản lí trên Linux, còn Windows nên được triển khai như một thiết bị được bảo vệ qua bouncer, đảm nhận vai trò nhận lệnh và thực thi quyết định từ crowdsec. 
 
 
