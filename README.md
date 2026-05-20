@@ -27,7 +27,7 @@ Thực nghiệm được triển khai hoàn toàn trên môi trường ảo hóa
 Các lệnh sẽ sử dụng:
 * `sudo cscli bouncers list `                 //danh sách các máy đã kết nối 
 * `sudo cscli bouncers add <tên tùy ý> `      //tạo api key cho bouncers
-*` sudo cscli bouncers delete <tên>    `       //xóa các kết nối bouncer
+* `sudo cscli bouncers delete <tên>    `       //xóa các kết nối bouncer
 * `sudo cscli machines list   `             //danh sách thiết bị crowdsec lấy logs
 * `sudo cscli machines add <tên tùy ý>  `     //tạo key api machines
 * `sudo cscli machines delete <tên>  `        //xóa key api machines
@@ -53,18 +53,18 @@ Kiểm tra lại bên máy server ubuntu, thấy IP của máy cần bảo vệ 
 
 ## 4. Thực nghiệm
 ### Kịch bản 1: Tấn công dò quét hệ thống
-* SSH bruteforce bằng Hydra
-Từ máy kali thực hiện tấn công vào dịch vụ SSH trên máy chủ web ubuntu
+1. SSH bruteforce bằng Hydra
+* Từ máy kali thực hiện tấn công vào dịch vụ SSH trên máy chủ web ubuntu
 `hydra -L username.txt -P test-password.txt -F ssh://192.168.2.134 -V -t 1`
 <img width="998" height="419" alt="image" src="https://github.com/user-attachments/assets/43fcff54-b835-4c62-b229-26e2ee1a5418" />
 
-Mục đích là để kiểm tra khả năng phát hiện và ngăn chặn của crowdsec trên tấn công bruteforce
-* Dò quét CMS Fingerprinting bằng wpscan
-Cuộc tấn công này nhằm dò tìm và xác định website trên máy chủ đang dùng CMS (content management system) nào, phiên bản, theme, plugin từ đó chọn cách khai thác lỗ hổng phù hợp, trong scenarios đã có 2 kịch bản nhận diện đây là hành vi crawl bất thường. Do nhiều request được gửi đến trong thời gian ngắn và trỏ vào path đặc trưng của CMS từ cùng một IP.
+* Mục đích là để kiểm tra khả năng phát hiện và ngăn chặn của crowdsec trên tấn công bruteforce
+2. Dò quét CMS Fingerprinting bằng wpscan
+* Cuộc tấn công này nhằm dò tìm và xác định website trên máy chủ đang dùng CMS (content management system) nào, phiên bản, theme, plugin từ đó chọn cách khai thác lỗ hổng phù hợp, trong scenarios đã có 2 kịch bản nhận diện đây là hành vi crawl bất thường. Do nhiều request được gửi đến trong thời gian ngắn và trỏ vào path đặc trưng của CMS từ cùng một IP.
 <img width="975" height="519" alt="image" src="https://github.com/user-attachments/assets/b6f55b9c-38db-4d88-a171-37d21b656f3c" />
 
 ### Kịch bản 2: Tấn công truy cập và thu thập đường dẫn nhạy cảm bằng gobuster
-Thực hiện viết một scripts tấn công bằng tool gobuster chạy trên máy kali linux để tấn công máy chủ web. Đoạn scripts sử dụng chế độ liệt kê thư mục và tệp tin của địa chỉ 192.168.2.4, sử dụng file từ điển common.txt để thử tên của các thư mục và tệp tin phổ biến. Chạy 10 luồn song song để tăng tốc độ quét, và tìm kiếm các file cụ thể như .php, .txt, .bak, .zip, .old, .env
+* Thực hiện viết một scripts tấn công bằng tool gobuster chạy trên máy kali linux để tấn công máy chủ web. Đoạn scripts sử dụng chế độ liệt kê thư mục và tệp tin của địa chỉ 192.168.2.4, sử dụng file từ điển common.txt để thử tên của các thư mục và tệp tin phổ biến. Chạy 10 luồn song song để tăng tốc độ quét, và tìm kiếm các file cụ thể như .php, .txt, .bak, .zip, .old, .env
 <img width="975" height="1076" alt="image" src="https://github.com/user-attachments/assets/7169e2e2-fdba-4433-8263-e12aebdf4439" />
 
 ### Kịch bản 3: Triển khai Community Blocklist, Scenarios cộng đồng để tự động bảo vệ hệ thống
