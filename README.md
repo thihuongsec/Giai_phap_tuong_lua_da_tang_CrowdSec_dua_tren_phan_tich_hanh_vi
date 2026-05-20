@@ -1,5 +1,5 @@
 # Giải pháp tường lửa đa tầng CrowdSec dựa trên phân tích hành vi
- * Chứng minh tính hiệu quả của cơ chế phát hiện và ngăn chặn IP độc hại dựa trên phân tích hành vi của CrowdSec áp dụng trong bảo vệ hệ thống khỏi các cuộc tấn công từ trong/ngoài tổ chức. * 
+_Chứng minh tính hiệu quả của cơ chế phát hiện và ngăn chặn IP độc hại dựa trên phân tích hành vi của CrowdSec áp dụng trong bảo vệ hệ thống khỏi các cuộc tấn công từ trong/ngoài tổ chức._ 
 
 ## 1. Yêu cầu hệ thống
 Thực nghiệm được triển khai hoàn toàn trên môi trường ảo hóa VMware có kết nối mạng.
