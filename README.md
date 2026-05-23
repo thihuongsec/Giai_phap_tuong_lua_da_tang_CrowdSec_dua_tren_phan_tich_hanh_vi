@@ -78,7 +78,7 @@ Kiểm tra lại bên máy server ubuntu, thấy IP của máy cần bảo vệ 
 
 * Bên trên là một danh sách dài các IP mà hệ thống máy chưa hề bị chúng tấn công, nhưng CrowdSec vẫn chặn để phòng ngừa. 
 
-## 5. Kết quả
+## 5. Kết luận
 * Kết quả các kịch bản, và nghiên cứu, phân tích đã được trình bày chi tiết trong báo cáo nghiên cứu .docx trên repo này.
 * Các kịch bản tấn công thử nghiệm khả năng phân tích hành vi và phát hiện của CrowdSec đều thành công, tốc độ lan truyền quyền tới các máy trong bouncers cũng rất nhanh. Đây là một công cụ mã nguồn mở rất đáng để nghiên cứu và phát triển sâu hơn. Ngoài ra tính năng machine learning vẫn chưa được đánh giá và sử dụng nhưng cũng sẽ đáng để mong chờ.
 * Nhược điểm là khả năng hỗ trợ trên các công cụ và hệ điều hành chưa đồng đều, qua quá trình triển khai thử nghiệm nhiều lần tôi thấy được việc triển khai trên các hệ điều hành nhân linux dễ dàng, tối ưu và nhanh chóng hơn so với windows. Ở thời điểm hiện tại Crowdsec chỉ có thể triển khai phân tích quản lí trên Linux, còn Windows nên được triển khai như một thiết bị được bảo vệ qua bouncer, đảm nhận vai trò nhận lệnh và thực thi quyết định từ crowdsec. 
